@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="RILEX Link Desk — بحث سريع في كتالوج روابط الألعاب الخاص بك.">
+<title>RILEX • Link Desk</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1018;--panel:#141c29;--line:#283448;--text:#eaf1fa;--muted:#a0b0c7;--accent:#91f0c8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button,a,input,select{touch-action:manipulation}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}a{color:inherit}header{border-bottom:1px solid var(--line);padding:20px max(24px,calc((100% - 1120px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px} .brand{font-weight:850;letter-spacing:3px;font-size:23px}.brand span{color:var(--accent)}.tag{font-size:12px;border:1px solid var(--line);padding:4px 12px;border-radius:100px;color:var(--muted)}main{max-width:1168px;margin:auto;padding:45px 24px}h1{font-size:clamp(30px,5vw,52px);line-height:1.25;margin:12px 0 20px;letter-spacing:-1px}h1 span{color:var(--accent)}.intro{max-width:670px;color:var(--muted)}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px}.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 16px}button,.button{border:1px solid var(--line);background:#1a2638;border-radius:12px;color:var(--text);padding:10px 16px;text-decoration:none}.primary{background:var(--accent);color:#09261b;border-color:var(--accent);font-weight:750}.filters{display:grid;grid-template-columns:1fr 150px 150px;gap:12px;margin:22px 0}input,select{width:100%;border:1px solid var(--line);background:#0f1724;color:var(--text);padding:13px 14px;border-radius:12px;min-width:0}input::placeholder{color:#8797af}.count{color:var(--muted);font-size:14px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}.card{border:1px solid var(--line);background:linear-gradient(145deg,#182233,#101823);border-radius:19px;padding:23px;display:flex;flex-direction:column;gap:14px}.card h2{margin:0;font-size:21px;overflow-wrap:anywhere}.meta{display:flex;gap:9px;flex-wrap:wrap;color:var(--muted);font-size:13px}.platform{color:var(--accent);font-weight:700}.links{display:grid;gap:10px;margin-top:auto}.source-link{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:11px;text-decoration:none;background:#111c2c}.source-link:hover{border-color:var(--accent)}.source-link small{display:block;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.source-link b{font-size:14px}.actions{display:flex;gap:8px}.actions button{font-size:12px;padding:6px 12px}.empty{grid-column:1/-1;text-align:center;padding:60px 20px;border:1px dashed var(--line);border-radius:20px;background:#101722}.empty h2{margin:0 0 10px}.empty p{color:var(--muted);max-width:520px;margin:auto}.notice{border-right:3px solid var(--accent);padding:10px 17px;background:#111c27;color:var(--muted);font-size:14px;margin:25px 0}.help{border-top:1px solid var(--line);padding:22px 0;margin-top:35px;color:var(--muted);font-size:14px}.help summary{cursor:pointer;color:var(--text);font-weight:650}.help li{margin:8px 0}footer{color:var(--muted);font-size:12px;padding:25px;text-align:center}dialog{width:min(580px,calc(100% - 28px));border:1px solid var(--line);border-radius:20px;background:var(--panel);color:var(--text);padding:25px;max-height:90vh;overflow:auto}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}dialog h2{margin:0 0 20px}.form-grid{display:grid;gap:14px}label{display:grid;gap:6px;font-size:14px}.modal-actions{display:flex;gap:10px;margin-top:22px}.fine{font-size:12px;color:var(--muted)}.status{min-height:26px;color:var(--accent);font-size:14px}.error{color:#ffb4ac}.hidden{display:none!important}@media(max-width:600px){main{padding:28px 16px}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}header{padding:16px}.toolbar button{font-size:13px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="brand" dir="ltr">RILEX<span> / </span>LINK DESK</div><span class="tag">كتالوج الروابط</span></header>
+<main>
+<div class="eyebrow" dir="ltr">FIND IT. CHOOSE YOUR SOURCE.</div>
+<h1>بحث واحد.<br><span>روابطك بمكان واحد.</span></h1>
+<p class="intro">ابحث بالاسم أو كود اللعبة، وقارن الروابط التي أضفتها من PSPKG وViking. واجهة بسيطة، بدون إعلانات مضافة.</p>
+<div class="toolbar">
+<button id="add" class="primary">＋ إضافة لعبة</button>
+<button id="import">استيراد JSON</button>
+<button id="export">تصدير JSON</button>
+<button id="publish">تنزيل HTML للنشر</button>
+<input id="file" class="hidden" type="file" accept="application/json,.json" aria-label="استيراد كتالوج">
+</div>
+<div class="notice">الكتالوج يُملأ بالروابط التي تضيفها. لا يوجد ربط تلقائي بالموقعين. تعديلك يُحفظ في هذا المتصفح؛ لمشاركته مع الزوار نزّل نسخة HTML للنشر وارفعها إلى GitHub.</div>
+<div class="filters">
+<input id="search" type="search" placeholder="اسم اللعبة أو CUSA / PPSA…" aria-label="بحث عن لعبة" autocomplete="off">
+<select id="platform" aria-label="الجهاز"><option value="">كل الأجهزة</option><option>PS5</option><option>PS4</option><option>PS3</option><option>PS2</option><option>PS1</option><option>PSP</option><option>PC</option><option>Xbox</option><option>Other</option></select>
+<select id="source" aria-label="المصدر"><option value="">كل المصادر</option><option value="pspkg">PSPKG</option><option value="viking">Viking</option></select>
+</div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<p id="count" class="count" aria-live="polite"></p>
+<section id="results" class="grid" aria-label="نتائج البحث"></section>
+<details class="help"><summary>كيف أضيف الروابط وأنشر الموقع؟</summary><ol>
+<li>اختر «إضافة لعبة» وأدخل الاسم والجهاز ورابط HTTPS من مصدر واحد أو المصدرين.</li>
+<li>زر المصدر يفتح الرابط الذي أدخلته كما هو. ضع رابط الملف النهائي إذا كنت تريد الوصول المباشر إليه ولديك حق توزيعه. الروابط المحمية أو المؤقتة تبقى خاضعة لشروط خادم المصدر.</li>
+<li>لتنقل بياناتك أو تحفظ نسخة احتياطية استخدم «تصدير JSON». الاستيراد يضيف أو يحدّث السجلات حسب المعرّف.</li>
+<li>عندما يجهز الكتالوج، اضغط «تنزيل HTML للنشر» وارفع الملف الناتج باسم index.html. سيظهر الكتالوج المضمّن لكل زائر.</li>
+<li>هذه صفحة ثابتة. تعديلات الزوار محلية ولا تغيّر النسخة المنشورة. لا تضع أسرار API أو روابط خاصة أو رموز دخول في كتالوج تنوي نشره.</li>
+</ol></details>
+</main>
+<footer dir="ltr">RILEX • Link Desk • No external libraries</footer>
+<dialog id="editor" aria-labelledby="editor-title">
+<form id="form">
+<h2 id="editor-title">إضافة لعبة</h2>
+<div class="form-grid">
+<label>اسم اللعبة<input id="name" required maxlength="160" autocomplete="off"></label>
+<label>الجهاز<select id="device"><option>PS4</option><option>PS5</option><option>PS3</option><option>PS2</option><option>PS1</option><option>PSP</option><option>PC</option><option>Xbox</option><option>Other</option></select></label>
+<label>كود اللعبة — اختياري<input id="titleId" maxlength="40" placeholder="CUSA… / PPSA…" dir="ltr"></label>
+<label>رابط المصدر PSPKG<input id="pspkg" type="url" placeholder="https://…" dir="ltr" maxlength="2048"></label>
+<label>رابط المصدر Viking<input id="viking" type="url" placeholder="https://…" dir="ltr" maxlength="2048"></label>
+</div>
+<p class="fine">أدخل رابطاً واحداً على الأقل. أسماء المصادر تسميات تنظيمية؛ يُعرض نطاق الرابط قبل فتحه.</p>
+<p id="form-error" class="error" role="alert"></p>
+<div class="modal-actions"><button type="submit" class="primary">حفظ</button><button type="button" id="cancel">إلغاء</button></div>
+</form></dialog>
+<!-- Published catalog: the download-HTML button embeds your data here. -->
+<script id="catalog-data" type="application/json">[]</script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const platforms=['PS5','PS4','PS3','PS2','PS1','PSP','PC','Xbox','Other'];
+const seedText=$('catalog-data').textContent;
+let hash=2166136261;
+for(const c of seedText) hash=Math.imul(hash^c.charCodeAt(0),16777619);
+const storageKey='rilex-linkdesk-v1-'+(hash>>>0);
+let catalog=[],editingId=null;
+function message(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error)}
+function url(value){
+ if(value===undefined||value===null||value==='')return '';
+ if(typeof value!=='string'||value.length>2048)throw Error('الرابط غير صالح أو طويل جداً.');
+ const parsed=new URL(value.trim());
+ if(parsed.protocol!=='https:'||parsed.username||parsed.password)throw Error('استخدم رابط HTTPS دون بيانات دخول مضمّنة.');
+ return parsed.href;
+}
+function cleanRecord(x){
+ if(!x||typeof x!=='object'||Array.isArray(x))throw Error('سجل غير صالح.');
+ if(typeof x.name!=='string'||!x.name.trim()||x.name.length>160)throw Error('كل سجل يحتاج اسم لعبة بطول لا يزيد عن 160 حرفاً.');
+ if(!platforms.includes(x.platform))throw Error('الجهاز غير معروف.');
+ const links={pspkg:url(x.links?.pspkg),viking:url(x.links?.viking)};
+ if(!links.pspkg&&!links.viking)throw Error('أدخل رابطاً واحداً على الأقل.');
+ if(x.titleId!==undefined&&(typeof x.titleId!=='string'||x.titleId.length>40))throw Error('كود اللعبة غير صالح.');
+ return {id:typeof x.id==='string'&&x.id.length<=100&&x.id.trim()?x.id:crypto.randomUUID(),name:x.name.trim(),platform:x.platform,titleId:(x.titleId||'').trim(),links};
+}
+function cleanList(value){
+ if(!Array.isArray(value)||value.length>5000)throw Error('الملف يجب أن يحتوي قائمة لا تتجاوز 5000 لعبة.');
+ const items=value.map(cleanRecord);
+ if(new Set(items.map(x=>x.id)).size!==items.length)throw Error('الملف يحتوي معرّفات مكررة.');
+ return items;
+}
+function save(next){
+ try{localStorage.setItem(storageKey,JSON.stringify(next));catalog=next;render();return true}
+ catch{message('تعذر الحفظ في المتصفح. تحقق من المساحة وصلاحية التخزين.',true);return false}
+}
+function el(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node}
+function render(){
+ const q=$('search').value.trim().toLocaleLowerCase();
+ const device=$('platform').value,source=$('source').value;
+ const items=catalog.filter(x=>(!q||(x.name+' '+x.titleId).toLocaleLowerCase().includes(q))&&(!device||x.platform===device)&&(!source||x.links[source]));
+ $('count').textContent=items.length+' نتيجة من أصل '+catalog.length+' لعبة';
+ $('results').replaceChildren();
+ if(!items.length){const box=el('div',undefined,'empty');box.append(el('h2',catalog.length?'ما في نتائج مطابقة':'ابدأ بإضافة أول لعبة'),el('p',catalog.length?'جرّب اسمًا آخر أو غيّر الفلاتر.':'أضف روابط ملفاتك أو استورد كتالوج JSON. ستظهر هنا بطاقات البحث وروابط المصدرين.'));$('results').append(box);return}
+ const fragment=document.createDocumentFragment();
+ for(const item of items){
+  const card=el('article',undefined,'card');
+  const meta=el('div',undefined,'meta');meta.append(el('span',item.platform,'platform'),el('bdi',item.titleId||'—'));
+  const title=el('h2',item.name);title.dir='auto';
+  const links=el('div',undefined,'links');
+  for(const key of ['pspkg','viking'])if(item.links[key]){
+   const a=el('a',undefined,'source-link');a.href=item.links[key];a.target='_blank';a.rel='noopener noreferrer';
+   const block=el('div');block.append(el('b',key==='pspkg'?'PSPKG':'Viking'),el('small',new URL(item.links[key]).hostname));
+   a.append(block,el('span','فتح الرابط ↗'));links.append(a);
+  }
+  const actions=el('div',undefined,'actions');
+  const edit=el('button','تعديل');edit.addEventListener('click',()=>openEditor(item));
+  const remove=el('button','حذف محلي');remove.addEventListener('click',()=>{if(confirm('حذف «'+item.name+'» من كتالوج هذا المتصفح؟')){if(save(catalog.filter(x=>x.id!==item.id)))message('تم الحذف محلياً.')}});
+  actions.append(edit,remove);card.append(meta,title,links,actions);fragment.append(card);
+ }
+ $('results').append(fragment);
+}
+function openEditor(item){
+ editingId=item?.id||null;$('form').reset();$('form-error').textContent='';$('editor-title').textContent=item?'تعديل اللعبة':'إضافة لعبة';
+ if(item){$('name').value=item.name;$('device').value=item.platform;$('titleId').value=item.titleId;$('pspkg').value=item.links.pspkg;$('viking').value=item.links.viking}
+ $('editor').showModal();$('name').focus();
+}
+function download(content,name,type){const blob=new Blob([content],{type});const link=document.createElement('a');const objectUrl=URL.createObjectURL(blob);link.href=objectUrl;link.download=name;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(objectUrl),1500)}
+$('add').addEventListener('click',()=>openEditor());
+$('cancel').addEventListener('click',()=>$('editor').close());
+$('form').addEventListener('submit',event=>{
+ event.preventDefault();
+ try{
+  const item=cleanRecord({id:editingId,name:$('name').value,platform:$('device').value,titleId:$('titleId').value,links:{pspkg:$('pspkg').value,viking:$('viking').value}});
+  const next=editingId?catalog.map(x=>x.id===editingId?item:x):[item,...catalog];
+  if(next.length>5000)throw Error('الحد الأقصى 5000 لعبة.');
+  if(save(next)){$('editor').close();message('تم الحفظ محلياً. لنشر التغيير نزّل نسخة HTML جديدة.')}else $('form-error').textContent='تعذر الحفظ في المتصفح.';
+ }catch(error){$('form-error').textContent=error.message}
+});
+for(const id of ['search','platform','source'])$(id).addEventListener(id==='search'?'input':'change',render);
+$('import').addEventListener('click',()=>$('file').click());
+$('file').addEventListener('change',async()=>{
+ const file=$('file').files[0];if(!file)return;
+ try{
+  if(file.size>5*1024*1024)throw Error('حجم الملف يجب أن يكون أقل من 5 MB.');
+  const incoming=cleanList(JSON.parse(await file.text()));
+  const merged=new Map(catalog.map(x=>[x.id,x]));for(const item of incoming)merged.set(item.id,item);
+  if(merged.size>5000)throw Error('الكتالوج الناتج يتجاوز 5000 لعبة.');
+  if(incoming.some(x=>catalog.some(y=>y.id===x.id))&&!confirm('بعض المعرفات موجودة. هل تريد تحديث بياناتها من الملف؟'))return;
+  if(save([...merged.values()]))message('تم استيراد '+incoming.length+' سجل.');
+ }catch(error){message('تعذر الاستيراد: '+error.message,true)}finally{$('file').value=''}
+});
+$('export').addEventListener('click',()=>download(JSON.stringify(catalog,null,2),'catalog.json','application/json;charset=utf-8'));
+$('publish').addEventListener('click',()=>{
+ const clone=document.documentElement.cloneNode(true);
+ clone.querySelector('#catalog-data').textContent=JSON.stringify(catalog).replace(/</g,'\\u003c');
+ clone.querySelector('#results').replaceChildren();clone.querySelector('#status').textContent='';clone.querySelector('#count').textContent='';
+ clone.querySelector('#editor').removeAttribute('open');clone.querySelector('#form-error').textContent='';
+ clone.querySelectorAll('input').forEach(input=>input.removeAttribute('value'));
+ download('<!doctype html>\n'+clone.outerHTML,'index.html','text/html;charset=utf-8');
+ message('تم تنزيل نسخة HTML تتضمن الكتالوج الحالي. ارفعها إلى GitHub لنشر التغييرات.');
+});
+try{catalog=cleanList(JSON.parse(seedText))}catch{message('بيانات الكتالوج المضمّن غير صالحة.',true)}
+try{const saved=localStorage.getItem(storageKey);if(saved!==null)catalog=cleanList(JSON.parse(saved))}catch{message('تعذر قراءة التخزين المحلي؛ تم فتح الكتالوج المضمّن.',true)}
+render();
+</script>
+</body>
+</html>
